@@ -14,6 +14,11 @@ export class AppComponent {
   year: number = this.currentTime.getFullYear();
 
   tasks: Task[] = Task.allTasks;
+  selectedTask: Task = this.tasks[0];
+
+  editTask(clickedTask) {
+    this.selectedTask = clickedTask;
+  }
 
   addTask() {
     let desc: string = prompt("describe your task");

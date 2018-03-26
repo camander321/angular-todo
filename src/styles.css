@@ -1,5 +1,20 @@
 @import url('https://unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css');
 
+body {
+  background-color: gray;
+}
 .done {
   text-decoration: line-through;
+}
+
+.red {
+  color: #aa3311;
+}
+
+.orange {
+  color: orange;
+}
+
+.yellow {
+  color: yellow;
 }
