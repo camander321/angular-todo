@@ -18,3 +18,16 @@ body {
 .yellow {
   color: yellow;
 }
+
+.btn-success {
+  margin-bottom: 10px;
+}
+
+#task-list-ul {
+  margin-top: 20px;
+}
+
+#task-title {
+  font-weight: bold;
+  font-size: 2.5em;
+}

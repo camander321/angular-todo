@@ -2,32 +2,12 @@
 <div class="container">
   <h1>To Do List for {{month}}/{{day}}/{{year}}</h1>
   <h3>{{currentFocus}}</h3>
-  <button (click)="addTask()">Add A Task</button>
-  <ul>
-    <li *ngFor="let currentTask of tasks">
-      <span [ngClass]="{
-        'done': currentTask.done === true,
-        'red': currentTask.priority == 1,
-        'orange': currentTask.priority == 2,
-        'yellow': currentTask.priority == 3
-      }" (click)="currentTask.markComplete()">
-        {{currentTask.description}}, {{currentTask.priority}}, {{currentTask.dateDue.toDateString()}}
-      </span>
-      <button (click)="editTask(currentTask)">EDIT</button>
-    </li>
-  </ul>
-  <button (click)="sortTasksByDate()">Sort by Date</button>
-  <button (click)="sortTasksByPriority()">Sort by Priority</button>
+  <app-task-list [childTaskList]="masterTaskList" (clickSender)="editTask($event)"></app-task-list>
 
-  <h3>{{selectedTask.description}}</h3>
-  <p>Task Complete? {{selectedTask.done}}</p>
-  <h3>Edit Task</h3>
-  <label>Enter Task Description:</label>
-  <input [(ngModel)]="selectedTask.description">
-  <label>Enter Task Priority (1-3):</label>
-  <br>
-  <input type="radio" [(ngModel)]="selectedTask.priority" [value]="1">1 (Low Priority)<br>
-  <input type="radio" [(ngModel)]="selectedTask.priority" [value]="2">2 (Medium Priority)<br>
-  <input type="radio" [(ngModel)]="selectedTask.priority" [value]="3">3 (High Priority)<br>
-  <button (click)="deleteTask()">Delete</button>
+  <app-edit-task [selectedTask]='selectedTask' (clickedDone)='finishedEditing()'></app-edit-task>
+
+  <app-new-task (sendTask)="addTask($event)"></app-new-task>
+
+
+
 </div>

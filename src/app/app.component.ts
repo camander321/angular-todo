@@ -13,31 +13,31 @@ export class AppComponent {
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
 
-  tasks: Task[] = Task.allTasks;
-  selectedTask: Task = this.tasks[0];
+  masterTaskList: Task[] = Task.allTasks;
+  selectedTask: Task = this.masterTaskList[0];
+
+  addTask(newTask: Task) {
+    this.masterTaskList.push(newTask);
+  }
 
   editTask(clickedTask) {
     this.selectedTask = clickedTask;
   }
 
   deleteTask() {
-    let index = this.tasks.indexOf(this.selectedTask)
-    this.tasks.splice(index, 1);
+    let index = this.masterTaskList.indexOf(this.selectedTask)
+    this.masterTaskList.splice(index, 1);
   }
 
-  addTask() {
-    let desc: string = prompt("describe your task");
-    let date: Date = new Date(prompt("when is it due?"));
-    let priority: number = parseInt(prompt("what priority does it have?"));
+  // addTask() {
+  //   let desc: string = prompt("describe your task");
+  //   let date: Date = new Date(prompt("when is it due?"));
+  //   let priority: number = parseInt(prompt("what priority does it have?"));
+  //
+  //   new Task(desc, priority, date);
+  // }
 
-    new Task(desc, priority, date);
-  }
-
-  sortTasksByDate() {
-    Task.sortTasks('date');
-  }
-
-  sortTasksByPriority() {
-    Task.sortTasks('priority');
+  finishedEditing() {
+    this.selectedTask = null;
   }
 }

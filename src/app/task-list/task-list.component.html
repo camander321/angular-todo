@@ -1,0 +1,17 @@
+<div *ngIf="childTaskList.length > 0">
+  <button (click)="sortTasksByDate()" class="btn btn-default">Sort by Date</button>
+  <button (click)="sortTasksByPriority()" class="btn btn-default">Sort by Priority</button>
+  <ul id="task-list-ul">
+    <li *ngFor="let currentTask of childTaskList">
+      <h4><span [ngClass]="{
+        'done': currentTask.done === true,
+        'red': currentTask.priority == 1,
+        'orange': currentTask.priority == 2,
+        'yellow': currentTask.priority == 3
+      }" (click)="currentTask.markComplete()">
+        {{currentTask.description}}, {{currentTask.priority}}, {{currentTask.dateDue.toDateString()}}
+      </span>
+      <button (click)="editButtonClicked(currentTask)" class="btn btn-warning btn-xs">EDIT</button></h4>
+    </li>
+  </ul>
+</div>
