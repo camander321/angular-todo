@@ -1,0 +1,3 @@
+<!-- <span *ngIf="currentTask.done === false">
+  {{currentTask.description}}, {{currentTask.priority}}, {{currentTask.dateDue.toDateString()}}
+</span> -->

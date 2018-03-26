@@ -13,6 +13,11 @@ export class Task {
       return Task.allTasks.sort(comparePriority);
     }
   }
+
+  markComplete() {
+    this.done = !this.done;
+    console.log(this.description + ", " + this.done);
+  }
 }
 
 function compareDate(a,b) {
