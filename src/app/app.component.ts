@@ -20,6 +20,11 @@ export class AppComponent {
     this.selectedTask = clickedTask;
   }
 
+  deleteTask() {
+    let index = this.tasks.indexOf(this.selectedTask)
+    this.tasks.splice(index, 1);
+  }
+
   addTask() {
     let desc: string = prompt("describe your task");
     let date: Date = new Date(prompt("when is it due?"));
