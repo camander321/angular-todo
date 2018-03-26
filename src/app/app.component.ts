@@ -28,15 +28,7 @@ export class AppComponent {
     let index = this.masterTaskList.indexOf(this.selectedTask)
     this.masterTaskList.splice(index, 1);
   }
-
-  // addTask() {
-  //   let desc: string = prompt("describe your task");
-  //   let date: Date = new Date(prompt("when is it due?"));
-  //   let priority: number = parseInt(prompt("what priority does it have?"));
-  //
-  //   new Task(desc, priority, date);
-  // }
-
+  
   finishedEditing() {
     this.selectedTask = null;
   }

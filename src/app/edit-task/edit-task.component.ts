@@ -10,8 +10,13 @@ export class EditTaskComponent {
 
   @Input() selectedTask: Task;
   @Output() clickedDone = new EventEmitter();
+  @Output() clickedDelete = new EventEmitter();
 
   finishedEditing() {
     this.clickedDone.emit();
+  }
+
+  deleteTask() {
+    this.clickedDelete.emit();
   }
 }
