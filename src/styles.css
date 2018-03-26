@@ -2,7 +2,16 @@
 
 body {
   background-color: gray;
+
 }
+
+.complete {
+  background-image: url('https://media2.giphy.com/media/26tOZ42Mg6pbTUPHW/giphy.gif');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .done {
   text-decoration: line-through;
 }
@@ -30,4 +39,12 @@ body {
 #task-title {
   font-weight: bold;
   font-size: 2.5em;
+}
+
+span {
+  cursor: grab;
+}
+
+span:active {
+  cursor: grabbing;
 }

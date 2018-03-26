@@ -12,6 +12,7 @@ export class AppComponent {
   month: number = this.currentTime.getMonth() + 1;
   day: number = this.currentTime.getDate();
   year: number = this.currentTime.getFullYear();
+  taskClass = Task;
 
   masterTaskList: Task[] = Task.allTasks;
   selectedTask: Task = this.masterTaskList[0];
@@ -28,7 +29,7 @@ export class AppComponent {
     let index = this.masterTaskList.indexOf(this.selectedTask)
     this.masterTaskList.splice(index, 1);
   }
-  
+
   finishedEditing() {
     this.selectedTask = null;
   }

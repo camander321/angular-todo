@@ -1,5 +1,6 @@
 export class Task {
   static allTasks = [];
+  static allComplete = false;
   public done: boolean = false;
   constructor(public description: string, public priority: number, public dateDue: Date) {
     Task.allTasks.push(this);
@@ -16,7 +17,10 @@ export class Task {
 
   markComplete() {
     this.done = !this.done;
-    console.log(this.description + ", " + this.done);
+    let complete: boolean = true;
+    Task.allTasks.forEach((task) => { complete = complete && task.done; });
+    Task.allComplete = complete;
+    console.log(Task.allComplete);
   }
 }
 
